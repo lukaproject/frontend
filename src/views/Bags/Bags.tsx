@@ -78,10 +78,12 @@ function Bags() {
 
     const [hiddenFindBag, setHiddenFindBag] = useState(false);
     const [hiddenListBags, setHiddenListBags] = useState(true);
+    const allSubPages = [setHiddenFindBag, setHiddenListBags]
 
     const EnabledBlock = (f: (value: React.SetStateAction<boolean>) => void) => {
-        setHiddenFindBag(true);
-        setHiddenListBags(true);
+        allSubPages.forEach((func) => {
+            func(true)
+        })
         f(false);
     };
 
