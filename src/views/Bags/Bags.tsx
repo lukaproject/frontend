@@ -24,7 +24,8 @@ function CallListBagsAPI(): BagsViewsProp.BagType[] {
 }
 
 const onSearch: SearchProps['onSearch'] = (value, _e, info) => {
-    JumpTo('/bags/' + value.trim())
+    value = value.trim()
+    JumpTo('/bags/' + value)
 }
 
 function ListBags(props: BagsViewsProp.HiddenProps) {
