@@ -5,22 +5,23 @@ import LukaBreadcrumb from "../commons/Breadcrumb";
 const { Header, Content } = Layout;
 
 interface NodeContentProps {
-    NodeId: string;
+    Id: string;
+    Name?: string;
 }
 
 
-function NodeContent(props: NodeContentProps) {
+function NodeContent(nodeContent: NodeContentProps) {
     return (
         <div>
-            {props.NodeId}
+            {nodeContent.Id}
         </div>
     )
 }
 
-function Node(props: NodeContentProps) {
+function Node(nodeContent: NodeContentProps) {
     return (
-        <Popover content={NodeContent(props)} title={props.NodeId}>
-            <Button type="primary">Node1</Button>
+        <Popover content={NodeContent(nodeContent)} title={nodeContent.Id}>
+            <Button type="primary">{nodeContent.Id}</Button>
         </Popover>
     )
 }
@@ -35,7 +36,11 @@ function Nodes() {
             ]} />
             <Layout>
                 <Content>
-                    <Node NodeId="11"></Node>
+                    <Node Id="11"></Node>
+                    <Node Id="12"></Node>
+                    <Node Id="13"></Node>
+                    <Node Id="14"></Node>
+                    <Node Id="15"></Node>
                 </Content>
             </Layout>
             <LukaFooter></LukaFooter>
